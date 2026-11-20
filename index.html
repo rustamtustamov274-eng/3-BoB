@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oʻsimlik va Hayvonlar Klassifikatsiyasi</title>
+<style>
+:root{--bg:#f4f8f2;--card:#fff;--tx:#14261a;--mu:#5a6f5f;--ac:#1f9d55;--ac2:#0ea5e9;--bd:#d5e3d6;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1410;--card:#13211a;--tx:#e6f3ea;--mu:#93aa9a;--ac:#34d37a;--ac2:#38bdf8;--bd:#25382d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1410;--card:#13211a;--tx:#e6f3ea;--mu:#93aa9a;--ac:#34d37a;--ac2:#38bdf8;--bd:#25382d;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5;overflow-x:hidden}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.logo{font-weight:800;display:flex;gap:8px;align-items:center}
+.ctr{display:flex;gap:8px}
+select,button{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:7px 11px;cursor:pointer}
+button:hover{border-color:var(--ac)}
+.hero{position:relative;text-align:center;padding:56px 18px 30px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;animation:fl 9s ease-in-out infinite alternate}
+.b1{width:260px;height:260px;background:var(--ac);left:-60px;top:-40px}.b2{width:300px;height:300px;background:var(--ac2);right:-80px;top:20px;animation-delay:-4s}
+@keyframes fl{to{transform:translate(40px,50px) scale(1.2)}}
+h1{position:relative;font-size:clamp(28px,6vw,52px);margin:0 0 8px;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{position:relative;color:var(--mu)}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1000px;margin:10px auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:22px;transition:.25s;display:flex;flex-direction:column;gap:12px}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 34px #0003;border-color:var(--ac)}
+.ic{font-size:44px;animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px) rotate(6deg)}}
+.card h3{margin:0;font-size:18px}.card button{margin-top:auto;background:linear-gradient(90deg,var(--ac),var(--ac2));color:#fff;border:0;font-weight:700}
+footer{text-align:center;padding:30px 16px 40px;color:var(--mu)}
+.cr{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.cr span{background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:6px 14px;color:var(--tx);font-weight:600}
+.win{position:fixed;inset:0;z-index:20;background:var(--bg);display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.win.on{display:flex}
+.wh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--bd)}
+.wh b{font-size:16px}
+.wb{flex:1;display:flex;min-height:0}
+#box{flex:1;min-width:0;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--ac) 18%,transparent),transparent 70%)}
+#box canvas{display:block}
+.pan{width:370px;overflow:auto;padding:16px;border-left:1px solid var(--bd)}
+.pan h2{margin:0 0 8px}.pan p{color:var(--mu);margin:6px 0}.pan em{color:var(--ac)}
+.pan .k{display:inline-block;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:2px 8px;margin:2px;font-size:13px;color:var(--tx)}
+#ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+#ctl input{accent-color:var(--ac)}
+@media(max-width:760px){.wb{flex-direction:column}#box{flex:0 0 46%}.pan{width:100%;border-left:0;border-top:1px solid var(--bd)}}
+.sec{text-align:center;margin:34px 16px 0}.sm{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}.sm .card{padding:14px;text-align:center;gap:4px;cursor:pointer}.sm .ic{font-size:34px}.sm h3{font-size:14px}.pan ol{color:var(--mu);padding-left:20px}.pan li{margin:6px 0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}nav{flex:1;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}nav a{padding:6px 10px;border-radius:8px;color:var(--mu);text-decoration:none;white-space:nowrap;font-size:14px}nav a:hover{color:var(--tx);background:var(--card)}.logo{white-space:nowrap}
+.eb{position:relative;color:var(--ac);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px}.btns{position:relative;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}.btns a{padding:10px 18px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--bd);color:var(--tx);background:var(--card)}.btns a:first-child{background:linear-gradient(90deg,var(--ac),var(--ac2));color:#fff;border:0}
+.stats{position:relative;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:22px}.stats b{display:block;font-size:30px;color:var(--ac)}.stats span{color:var(--mu);font-size:13px}
+.sc{max-width:1000px;margin:0 auto}.k2{padding:5px 9px;margin:3px;font-size:13px}.card p{margin:0;color:var(--mu);font-size:14px}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:8px 0}summary{cursor:pointer;font-weight:700}details li{color:var(--mu);margin:4px 0}details button{margin-top:6px}
+.bar{display:flex;height:36px;border-radius:10px;overflow:hidden}.bar div{display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700}.num b{font-size:26px;color:var(--ac)}.team span{font-size:15px}
+.ic canvas{display:block;width:72px;height:72px;margin:0 auto}.logo .ic{animation:none;display:flex}.logo .ic canvas{width:34px;height:34px}
+</style>
+</head>
+<body>
+<header><div class="logo">🧬 <span id="lg">Biologiya</span></div><nav id="nv"></nav><div class="ctr"><select id="ls" aria-label="Language"></select><button id="th" aria-label="Theme">🌗</button></div></header>
+<section class="hero"><div class="blob b1"></div><div class="blob b2"></div><div class="eb" id="eb"></div><h1 id="ti"></h1><div class="sub" id="sb"></div><div class="btns" id="bt"></div><div class="stats" id="st0"></div></section>
+
+<section id="t" class="sc"><h2 class="sec" id="h2"></h2><main class="grid sm" id="gh"></main></section><div id="pg"></div>
+<footer id="c"><h2 class="sec" id="cl"></h2><div class="cr team"><span>Rustamov Boʻrixon</span><span>Oqilov Qosimbek</span><span>Raximxojayev Ubaydulla</span></div></footer>
+<div class="win" id="win"><div class="wh"><b id="wt"></b><button id="cb"></button></div><div class="wb"><div id="box"></div><aside class="pan"><h2 id="pt"></h2><div id="pb"></div><div id="ctl"></div></aside></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const L={
+uz:"Oʻsimlik va Hayvonlar Klassifikatsiyasi|Tur tushunchasi va mohiyatini tushunib olish|Tur doirasidagi oʻzgaruvchanlikni tadqiq etish|Mahalliy oʻsimlik va hayvonlarni klassifikatsiya qilish|Ochish|Yaratuvchilar|Biologiya fanidan loyiha|Yopish",
+en:"Classification of Plants and Animals|Understand the concept and essence of species|Explore variability within a species|Classify local plants and animals|Open|Creators|Biology project|Close",
+ru:"Классификация растений и животных|Понять понятие и сущность вида|Исследовать изменчивость внутри вида|Классифицировать местные растения и животных|Открыть|Создатели|Проект по биологии|Закрыть",
+tr:"Bitki ve Hayvanların Sınıflandırılması|Tür kavramını ve özünü anlama|Tür içi değişkenliği araştırma|Yerel bitki ve hayvanları sınıflandırma|Aç|Yapımcılar|Biyoloji projesi|Kapat",
+kk:"Өсімдіктер мен жануарлар жіктелуі|Түр ұғымы мен мәнін түсіну|Түр ішіндегі өзгергіштікті зерттеу|Жергілікті өсімдіктер мен жануарларды жіктеу|Ашу|Жасаушылар|Биология жобасы|Жабу",
+ky:"Өсүмдүктөр жана жаныбарлардын классификациясы|Түр түшүнүгүн жана маңызын түшүнүү|Түр ичиндеги өзгөрмөлүүлүктү изилдөө|Жергиликтүү өсүмдүктөр менен жаныбарларды классификациялоо|Ачуу|Түзүүчүлөр|Биология долбоору|Жабуу",
+tg:"Таснифи растаниҳо ва ҳайвонот|Фаҳмидани мафҳум ва моҳияти намуд|Омӯзиши тағйирпазирӣ дар доираи намуд|Тасниф кардани растаниҳо ва ҳайвоноти маҳаллӣ|Кушодан|Созандагон|Лоиҳаи биология|Пӯшидан",
+az:"Bitki və heyvanların təsnifatı|Növ anlayışını və mahiyyətini anlamaq|Növ daxilində dəyişkənliyi tədqiq etmək|Yerli bitki və heyvanları təsnif etmək|Aç|Yaradıcılar|Biologiya layihəsi|Bağla",
+de:"Klassifikation von Pflanzen und Tieren|Begriff und Wesen der Art verstehen|Variabilität innerhalb einer Art erforschen|Lokale Pflanzen und Tiere klassifizieren|Öffnen|Entwickler|Biologieprojekt|Schließen",
+fr:"Classification des plantes et des animaux|Comprendre la notion d’espèce|Étudier la variabilité au sein d’une espèce|Classer les plantes et animaux locaux|Ouvrir|Créateurs|Projet de biologie|Fermer",
+es:"Clasificación de plantas y animales|Comprender el concepto de especie|Investigar la variabilidad dentro de la especie|Clasificar plantas y animales locales|Abrir|Creadores|Proyecto de biología|Cerrar",
+it:"Classificazione di piante e animali|Comprendere il concetto di specie|Studiare la variabilità nella specie|Classificare piante e animali locali|Apri|Creatori|Progetto di biologia|Chiudi",
+pt:"Classificação de plantas e animais|Compreender o conceito de espécie|Investigar a variabilidade dentro da espécie|Classificar plantas e animais locais|Abrir|Criadores|Projeto de biologia|Fechar",
+ar:"تصنيف النباتات والحيوانات|فهم مفهوم النوع وجوهره|دراسة التباين داخل النوع|تصنيف النباتات والحيوانات المحلية|فتح|المبدعون|مشروع أحياء|إغلاق",
+fa:"طبقه‌بندی گیاهان و جانوران|درک مفهوم و ماهیت گونه|بررسی تنوع درون گونه|طبقه‌بندی گیاهان و جانوران بومی|باز کردن|سازندگان|پروژه زیست‌شناسی|بستن",
+zh:"动植物分类|理解物种的概念与本质|探究物种内的变异|对本地动植物进行分类|打开|创作者|生物学项目|关闭",
+ja:"植物と動物の分類|種の概念と本質を理解する|種内の変異を探究する|地域の動植物を分類する|開く|制作者|生物学プロジェクト|閉じる",
+ko:"식물과 동물의 분류|종의 개념과 본질 이해|종 내 변이 탐구|지역 동식물 분류|열기|제작자|생물 프로젝트|닫기",
+hi:"पौधों और जानवरों का वर्गीकरण|प्रजाति की अवधारणा और सार को समझें|प्रजाति के भीतर विविधता का अध्ययन|स्थानीय पौधों और जानवरों का वर्गीकरण|खोलें|निर्माता|जीव विज्ञान परियोजना|बंद करें",
+uk:"Класифікація рослин і тварин|Зрозуміти поняття та сутність виду|Дослідити мінливість у межах виду|Класифікувати місцеві рослини і тварин|Відкрити|Автори|Проєкт з біології|Закрити",
+pl:"Klasyfikacja roślin i zwierząt|Zrozumieć pojęcie i istotę gatunku|Badać zmienność w obrębie gatunku|Klasyfikować lokalne rośliny i zwierzęta|Otwórz|Twórcy|Projekt z biologii|Zamknij",
+id:"Klasifikasi Tumbuhan dan Hewan|Memahami konsep dan hakikat spesies|Menyelidiki variasi dalam spesies|Mengklasifikasikan tumbuhan dan hewan lokal|Buka|Pembuat|Proyek biologi|Tutup"};
+const N={uz:"Oʻzbekcha",en:"English",ru:"Русский",tr:"Türkçe",kk:"Қазақша",ky:"Кыргызча",tg:"Тоҷикӣ",az:"Azərbaycan",de:"Deutsch",fr:"Français",es:"Español",it:"Italiano",pt:"Português",ar:"العربية",fa:"فارسی",zh:"中文",ja:"日本語",ko:"한국어",hi:"हिन्दी",uk:"Українська",pl:"Polski",id:"Indonesia"};
+/* Maʼlumotlar: [uz, en] — boshqa tillarda ingliz matni koʻrsatiladi */
+const D=[
+{p:[["<b>Tur</b> — umumiy kelib chiqishga, oʻxshash tuzilish va fiziologiyaga ega, oʻzaro erkin chatishib unumdor nasl beradigan, bitta areal egallagan individlar yigʻindisi.","<b>A species</b> is a group of individuals with common origin, similar structure and physiology that interbreed freely and produce fertile offspring in one range."],["<b>Tur mezonlari:</b> morfologik, genetik (xromosomalar soni), fiziologik, ekologik, geografik va reproduktiv izolyatsiya.","<b>Criteria:</b> morphological, genetic (chromosome number), physiological, ecological, geographic and reproductive isolation."],["Karl Linney <em>binar nomenklatura</em>ni kiritgan: avlod + tur, masalan <em>Panthera uncia</em>.","Carl Linnaeus introduced <em>binomial nomenclature</em>: genus + species, e.g. <em>Panthera uncia</em>."],["👆 Chap tomonda — DNK spirali. Toʻplarni bosing: sistematik toifalar (Domendan Turgacha).","👆 Left: DNA helix. Tap the spheres: taxonomic ranks (Domain to Species)."]]},
+{p:[["<b>Oʻzgaruvchanlik</b> — bir tur individlari orasidagi farqlar. Turlari: <em>modifikatsion</em> (genotip oʻzgarmaydi, muhitga bogʻliq), <em>mutatsion</em> (DNK oʻzgaradi), <em>kombinativ</em> (chatishuvda genlar qayta birikadi).","<b>Variability</b> means differences among individuals of one species: <em>modification</em> (genotype unchanged, environment-driven), <em>mutational</em> (DNA changes), <em>combinative</em> (genes recombine in crossing)."],["<b>Tajriba:</b> yer rangi — muhit. Rangi muhitga yaqin jonivorlar yirtqichdan yashirinadi va nasl qoldiradi (tabiiy tanlanish).","<b>Experiment:</b> the ground colour is the environment. Animals matching it hide from predators and reproduce (natural selection)."]]},
+{p:[["Mahalliy turlarni toifalab chiqing: jonivorni bosing — tur nomi, sistematik zanjiri va qiziqarli maʼlumot chiqadi.","Classify local species: tap a creature to see its name, taxonomic chain and facts."]]}];
+const RK=[["Domen","Domain","Eukaryota","Hujayrasi yadroli organizmlar.","Organisms whose cells have a nucleus."],["Olam","Kingdom","Animalia","Geterotrof, harakatchan koʻp hujayrali organizmlar.","Heterotrophic, motile multicellular organisms."],["Tip","Phylum","Chordata","Xorda va nerv nayi bor hayvonlar.","Animals with a notochord and nerve cord."],["Sinf","Class","Mammalia","Sut bilan boqadi, tanasi jun bilan qoplangan.","Feed young with milk, hair-covered."],["Turkum","Order","Carnivora","Goʻshtxoʻr, oʻtkir tishli yirtqichlar.","Meat-eating predators with sharp teeth."],["Oila","Family","Felidae","Mushuksimonlar, tortiladigan tirnoqlar.","Cat family with retractable claws."],["Avlod","Genus","Panthera","Katta mushuklar: sher, yoʻlbars, bars.","Big cats: lion, tiger, leopard, snow leopard."],["Tur","Species","Panthera uncia","Bars — togʻlar egasi, Qizil kitobga kiritilgan.","Snow leopard — mountain predator, protected."]];
+const LC=[["Oq saksovul","White saxaul","Haloxylon persicum","Plantae › Magnoliophyta › Magnoliopsida › Caryophyllales › Amaranthaceae","Qumlarni mustahkamlaydi, choʻl ekotizimining asosi.","Stabilises sand dunes; a keystone of desert ecosystems.","p","#b08d57"],
+["Greyg lolasi","Greig’s tulip","Tulipa greigii","Plantae › Liliopsida › Liliales › Liliaceae","Bahorda togʻ yon bagʻirlarida gullaydi, himoyaga muhtoj.","Blooms on mountain slopes in spring; needs protection.","f","#e4372c"],
+["Yovvoyi pista","Wild pistachio","Pistacia vera","Plantae › Magnoliopsida › Sapindales › Anacardiaceae","Quruq togʻ yon bagʻirlarida oʻsadi, mevasi qimmatli.","Grows on dry slopes; valuable nuts.","p","#6aa84f"],
+["Turkiston archa","Turkestan juniper","Juniperus turkestanica","Plantae › Pinopsida › Cupressales › Cupressaceae","Togʻ tuprogʻini eroziyadan saqlaydi, uzoq yashaydi.","Protects mountain soil from erosion; very long-lived.","p","#2e7d4f"],
+["Bars","Snow leopard","Panthera uncia","Animalia › Chordata › Mammalia › Carnivora › Felidae","Oʻzbekiston Qizil kitobiga kiritilgan, yuqori togʻ yirtqichi.","Listed in the Red Book; a high-mountain predator.","a","#cfd8dc"],
+["Jayron","Goitered gazelle","Gazella subgutturosa","Animalia › Chordata › Mammalia › Artiodactyla › Bovidae","Choʻl va yarim choʻllarda yashaydi, tez yuguradi.","Lives in deserts and semi-deserts; fast runner.","a","#d9a05b"],
+["Buxoro bugʻusi","Bukhara deer","Cervus hanglu bactrianus","Animalia › Chordata › Mammalia › Artiodactyla › Cervidae","Tugay oʻrmonlarida yashaydi, noyob kenja tur.","Lives in tugai forests; a rare subspecies.","a","#a0522d"],
+["Choʻl toshbaqasi","Central Asian tortoise","Testudo horsfieldii","Animalia › Chordata › Reptilia › Testudines › Testudinidae","Yozda uyquga ketadi, choʻlda sekin yuradi.","Aestivates in summer; slow desert walker.","a","#8a9a3b"]];
+let lang="uz",cur=null;const $=s=>document.querySelector(s);
+const U=i=>(L[lang]||L.uz).split("|")[i];
+const tx=a=>lang==="uz"?a[0]:a[1];
+try{lang=localStorage.getItem("lg")||(navigator.language||"uz").slice(0,2)}catch(e){}
+if(!L[lang])lang="uz";
+const ICN=["🧬","🦋","🌿"];
+function render(){
+ document.documentElement.lang=lang;document.documentElement.dir=(lang==="ar"||lang==="fa")?"rtl":"ltr";
+ document.title=U(0);$("#ti").textContent="Biologiya";$("#sb").textContent=U(0);PG();$("#cl").textContent=U(5);$("#cb").textContent="✕ "+U(7);
+ $("#gr").innerHTML=[0,1,2].map(k=>`<div class="card"><div class="ic">${ICN[k]}</div><h3>${k+1}. ${U(k+1)}</h3><button data-k="${k}">${U(4)} →</button></div>`).join("");
+ $("#gr").querySelectorAll("button").forEach(b=>b.onclick=()=>openW(+b.dataset.k));
+ $("#h2").textContent=tx(["🧍 Odam organizmi — 20 ta 3D animatsiya va 100 ta fakt","🧍 Human body — 20 3D animations and 100 facts"]);
+ $("#gh").innerHTML=`<a class="card" href="https://rustamtustamov274-eng.github.io/Biologiya-Darslik-/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><div class="ic">📚</div><h3>Biologiya — Darslik ↗</h3></a>`+HM.map((h,i)=>`<div class="card" data-h="${i}"><div class="ic">${h[0]}</div><h3>${tx([h[1],h[2]])}</h3></div>`).join("");
+ $("#gh").querySelectorAll("[data-h]").forEach(c=>c.onclick=()=>openH(+c.dataset.h));
+}
+$("#ls").innerHTML=Object.keys(N).map(k=>`<option value="${k}">${N[k]}</option>`).join("");
+$("#ls").value=lang;$("#ls").onchange=e=>{lang=e.target.value;try{localStorage.setItem("lg",lang)}catch(x){}render()};
+$("#th").onclick=()=>{const r=document.documentElement,dk=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dk?"light":"dark";try{localStorage.setItem("th",r.dataset.theme)}catch(e){}};
+try{const t=localStorage.getItem("th");if(t)document.documentElement.dataset.theme=t}catch(e){}
+
+function lab(t){const c=document.createElement("canvas");c.width=256;c.height=64;const x=c.getContext("2d");x.font="bold 30px sans-serif";x.textAlign="center";x.lineWidth=6;x.strokeStyle="#000a";x.fillStyle="#fff";x.strokeText(t,128,42);x.fillText(t,128,42);const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true,depthTest:false}));s.scale.set(2.4,.6,1);return s}
+/* ===== Realistik grafika: PBR, muhit yoritgichi, soyalar, yorqinlik ===== */
+const lin=c=>new THREE.Color(c).convertSRGBToLinear();
+let NZ,GT;
+function noiseTex(){if(NZ)return NZ;const c=document.createElement("canvas");c.width=c.height=256;const x=c.getContext("2d"),d=x.createImageData(256,256);for(let i=0;i<65536;i++){const px=i%256,py=i>>8,v=128+64*Math.sin(px*.21+Math.sin(py*.13)*2)*Math.cos(py*.17+Math.sin(px*.11)*2)+Math.random()*60;d.data.set([v,v,v,255],i*4)}x.putImageData(d,0,0);NZ=new THREE.CanvasTexture(c);NZ.wrapS=NZ.wrapT=THREE.RepeatWrapping;NZ.repeat.set(3,3);return NZ}
+function glowTex(){if(GT)return GT;const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d"),g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,"rgba(255,255,255,1)");g.addColorStop(.25,"rgba(255,255,255,.5)");g.addColorStop(1,"rgba(255,255,255,0)");x.fillStyle=g;x.fillRect(0,0,64,64);return GT=new THREE.CanvasTexture(c)}
+const gl=(c,s)=>{const p=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex(),color:c,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false}));p.scale.set(s,s,1);return p};
+function mkEnv(r){try{const pm=new THREE.PMREMGenerator(r),s=new THREE.Scene(),c=document.createElement("canvas");c.width=4;c.height=256;const x=c.getContext("2d"),g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,"#dff1ff");g.addColorStop(.45,"#fff3e0");g.addColorStop(.55,"#8aa0a8");g.addColorStop(1,"#1d2b2a");x.fillStyle=g;x.fillRect(0,0,4,256);const t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;s.add(new THREE.Mesh(new THREE.SphereGeometry(50,32,16),new THREE.MeshBasicMaterial({map:t,side:THREE.BackSide})));[[20,25,20,1],[-25,10,-10,.6],[0,-5,30,.5]].forEach(([a,b,d,k])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(14,14,1),new THREE.MeshBasicMaterial({color:new THREE.Color(k*4,k*4,k*3.6)}));m.position.set(a,b,d);m.lookAt(0,0,0);s.add(m)});const e=pm.fromScene(s,.03).texture;pm.dispose();return e}catch(e){return null}}
+function org(r,k,a){const g=new THREE.SphereGeometry(r,56,40),p=g.attributes.position,v=new THREE.Vector3();for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i).normalize();const n=Math.sin(v.x*k+1.3)*Math.sin(v.y*k*1.1+.7)*Math.sin(v.z*k*.9+2.1)+.5*Math.sin(v.x*k*2.3+v.y*k*1.7)*Math.cos(v.z*k*2.1);v.multiplyScalar(r*(1+a*n));p.setXYZ(i,v.x,v.y,v.z)}g.computeVertexNormals();return g}
+function dust(sc,S){const n=300,p=new Float32Array(n*3);for(let i=0;i<n*3;i++)p[i]=(Math.random()-.5)*(i%3===1?14:20);const m=new THREE.Points(new THREE.BufferGeometry().setAttribute("position",new THREE.BufferAttribute(p,3)),new THREE.PointsMaterial({size:.08,color:0xbfeaff,transparent:true,opacity:.55,depthWrite:false,map:glowTex(),blending:THREE.AdditiveBlending}));sc.add(m);S.ticks.push(t=>{m.rotation.y=t*.03;m.position.y=Math.sin(t*.3)*.3})}
+const MT=(c,e)=>new THREE.MeshPhysicalMaterial({color:lin(c),roughness:.42,metalness:.02,clearcoat:.7,clearcoatRoughness:.22,bumpMap:noiseTex(),bumpScale:1.5,sheen:lin(c).multiplyScalar(1.4),envMapIntensity:.9,emissive:e?lin(e):0,emissiveIntensity:.18});
+function stage(box){
+ const r=new THREE.WebGLRenderer({antialias:true,alpha:true}),sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(50,1,.1,100),g=new THREE.Group(),ray=new THREE.Raycaster(),v=new THREE.Vector2();
+ r.setPixelRatio(Math.min(devicePixelRatio,2));box.appendChild(r.domElement);
+ cam.position.set(0,2.2,10);cam.lookAt(0,.5,0);
+ r.outputEncoding=THREE.sRGBEncoding;r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.2;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;sc.environment=mkEnv(r);
+ sc.add(new THREE.HemisphereLight(0xcfe8ff,0x203830,.35));const dl=new THREE.DirectionalLight(0xfff1dd,1.6);dl.position.set(5,9,7);dl.castShadow=true;dl.shadow.mapSize.set(1024,1024);Object.assign(dl.shadow.camera,{left:-9,right:9,top:9,bottom:-9,near:1,far:30});dl.shadow.camera.updateProjectionMatrix();dl.shadow.bias=-.0008;const rl=new THREE.DirectionalLight(0x6fd3ff,1.1);rl.position.set(-6,3,-8);sc.add(dl,rl,g);
+ const S={g,pick:null,ticks:[],on:true};dust(sc,S);
+ const rs=()=>{const w=box.clientWidth||300,h=box.clientHeight||300;r.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix()};
+ const ro=new ResizeObserver(rs);ro.observe(box);rs();
+ let d=0,px=0,py=0,mv=0;const el=r.domElement;el.style.touchAction="none";
+ el.onpointerdown=e=>{d=1;mv=0;px=e.clientX;py=e.clientY;el.setPointerCapture(e.pointerId)};
+ el.onpointermove=e=>{if(!d)return;const dx=e.clientX-px,dy=e.clientY-py;px=e.clientX;py=e.clientY;mv+=Math.abs(dx)+Math.abs(dy);g.rotation.y+=dx*.01;g.rotation.x=Math.max(-.6,Math.min(.6,g.rotation.x+dy*.006))};
+ el.onpointerup=e=>{d=0;if(mv<6&&S.pick){const b=el.getBoundingClientRect();v.set((e.clientX-b.left)/b.width*2-1,-((e.clientY-b.top)/b.height)*2+1);ray.setFromCamera(v,cam);for(const x of ray.intersectObjects(g.children,true)){let o=x.object;while(o&&o.userData.pick===undefined)o=o.parent;if(o){S.pick(o.userData.pick,o);break}}}};
+ el.onwheel=e=>{e.preventDefault();cam.position.z=Math.max(5,Math.min(16,cam.position.z+e.deltaY*.01))};
+ const ck=new THREE.Clock();
+ (function lp(){if(!S.on)return;requestAnimationFrame(lp);const t=ck.getElapsedTime();if(!d)g.rotation.y+=.003;if((S.fc=(S.fc||0)+1)%20===1)g.traverse(o=>{if(o.isMesh&&!o.material.transparent){o.castShadow=o.receiveShadow=true}});S.ticks.forEach(f=>f(t));r.render(sc,cam)})();
+ S.stop=()=>{S.on=false;ro.disconnect();r.dispose();box.innerHTML=""};
+ return S}
+function show(h,b){$("#pt").innerHTML=h;$("#pb").innerHTML=b}
+function btn(t,f){const b=document.createElement("button");b.textContent=({"🌐":tx(["Hammasi","All"]),"🌿":tx(["Oʻsimlik","Plants"]),"🐾":tx(["Hayvon","Animals"])})[t]||t;b.onclick=f;$("#ctl").appendChild(b);return b}
+
+/* 1: Tur tushunchasi — taksonomik zinapoya + DNK */
+function s1(S){
+ const pts=[],rings=[],balls=[];
+ RK.forEach((n,i)=>{const c=new THREE.Color().setHSL(.62-i*.08,.75,.55),x=Math.sin(i*1.1)*1.1,y=3-i*.85;
+  const m=new THREE.Mesh(new THREE.SphereGeometry(.5-i*.03,32,32),MT(c,c));m.position.set(x,y,0);m.userData.pick=i;S.g.add(m);balls.push(m);
+  const rg=new THREE.Mesh(new THREE.TorusGeometry(.78-i*.03,.02,8,64),MT(0xffffff));rg.position.copy(m.position);S.g.add(rg);rings.push(rg);
+  const l=lab(tx([n[0],n[1]]));l.position.set(x+1.7,y,0);S.g.add(l);pts.push(new THREE.Vector3(x,y,0))});
+ S.g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:0x8899aa})));
+ const hx=new THREE.Group();hx.position.set(-3.8,.3,0);S.g.add(hx);const sg=new THREE.SphereGeometry(.09,10,10),cg=new THREE.CylinderGeometry(.015,.015,1.2,5);
+ for(let k=0;k<44;k++){const a=k*.45,y=k*.14-3;[0,Math.PI].forEach((o,j)=>{const b=new THREE.Mesh(sg,MT(j?0xff5577:0x33ddff));b.position.set(Math.cos(a+o)*.6,y,Math.sin(a+o)*.6);hx.add(b)});
+  if(k%2===0){const r=new THREE.Mesh(cg,MT(0xffffff));r.position.y=y;r.rotation.order="YXZ";r.rotation.set(0,-a,Math.PI/2);hx.add(r)}}
+ S.pick=i=>{const n=RK[i];show(`${tx([n[0],n[1]])}: <em>${n[2]}</em>`,`<p>${tx([n[3],n[4]])}</p><p>${RK.slice(0,i+1).map(r=>`<span class="k">${tx([r[0],r[1]])}</span>`).join("")}</p>`)};
+ S.ticks.push(t=>{rings.forEach((r,i)=>{r.rotation.x=t*(.6+i*.1);r.rotation.y=t*.4});balls.forEach((b,i)=>b.position.x=Math.sin(i*1.1)*1.1+Math.sin(t+i)*.12);hx.rotation.y=t*.8})}
+
+/* 2: Oʻzgaruvchanlik va tabiiy tanlanish */
+function s2(S){
+ let E=.25,gen=0,sig=.5,pop=[],ms=[];const NP=36;
+ const gnd=new THREE.Mesh(new THREE.CylinderGeometry(4.6,4.6,.2,64),new THREE.MeshStandardMaterial({roughness:.9}));gnd.position.y=-1;S.g.add(gnd);
+ const bg=new THREE.SphereGeometry(.5,20,16),rn=()=>(Math.random()+Math.random()+Math.random()-1.5)*1.4;
+ const dist=h=>{const d=Math.abs(h-E);return Math.min(d,1-d)};
+ const st=document.createElement("span");
+ function draw(){ms.forEach(m=>S.g.remove(m));ms=pop.map(c=>{const g=new THREE.Group(),m=new THREE.MeshStandardMaterial({color:new THREE.Color().setHSL(c.h,.6,.5),roughness:.5}),b=new THREE.Mesh(bg,m),hd=new THREE.Mesh(bg,m);b.scale.set(1,.75,1.4);hd.scale.setScalar(.6);hd.position.set(0,.2,.6);g.add(b,hd);
+  const a=Math.random()*6.28,r=Math.sqrt(Math.random())*3.9;g.position.set(Math.cos(a)*r,-.6,Math.sin(a)*r);g.rotation.y=Math.random()*6.28;g.userData={s:c.s,p:Math.random()*6,sp:0};g.scale.setScalar(.01);S.g.add(g);return g});
+  gnd.material.color.setHSL(E,.5,.35);
+  const avg=pop.reduce((a,c)=>a+dist(c.h),0)/pop.length;st.textContent=`${tx(["Avlod","Generation"])}: ${gen} · ${tx(["Moslik farqi","Mismatch"])}: ${(avg*100).toFixed(0)}%`;show(tx(["Tabiiy tanlanish","Natural selection"]),D[1].p.map(a=>`<p>${tx(a)}</p>`).join(""))}
+ function reset(){gen=0;pop=Array.from({length:NP},()=>({h:(.6+rn()*.12+1)%1,s:.8+Math.random()*.4}));draw()}
+ function step(){const sv=pop.slice().sort((a,b)=>dist(a.h)-dist(b.h)).slice(0,Math.ceil(NP*.4)),nx=sv.slice();
+  while(nx.length<NP){const p=sv[Math.floor(Math.random()*sv.length)];nx.push({h:(p.h+rn()*sig*.15+1)%1,s:Math.max(.6,Math.min(1.4,p.s+rn()*.1*sig))})}pop=nx;gen++;draw()}
+ btn("▶ "+tx(["Tanlanish","Select"]),step);btn("🎲 "+tx(["Muhitni oʻzgartirish","Change environment"]),()=>{E=Math.random();draw()});btn("↺",reset);
+ const lb=document.createElement("label");lb.textContent=tx(["Mutatsiya: ","Mutation: "]);const sl=document.createElement("input");sl.type="range";sl.min="0";sl.max="1";sl.step=".05";sl.value=".5";sl.oninput=()=>sig=+sl.value;lb.appendChild(sl);$("#ctl").append(lb,document.createElement("br"),st);
+ S.ticks.push(t=>ms.forEach(m=>{const u=m.userData;u.sp=Math.min(1,u.sp+.04);m.scale.setScalar(.55*u.s*u.sp);m.position.y=-.6+Math.abs(Math.sin(t*2+u.p))*.12}));
+ reset()}
+
+/* 3: Mahalliy turlar klassifikatsiyasi */
+function s3(S){
+ const gs=[],n=LC.length,cy=(a,b,h,m)=>new THREE.Mesh(new THREE.CylinderGeometry(a,b,h,12),m);
+ const pl=new THREE.Mesh(new THREE.CylinderGeometry(4.8,4.8,.15,64),MT(0x335544));pl.position.y=-.1;S.g.add(pl);
+ LC.forEach((o,i)=>{const g=new THREE.Group(),m=MT(new THREE.Color(o[7].length?o[7]:"#fff")),br=MT(0x6b4a2b);
+  if(o[6]==="p"){const t=cy(.08,.12,1,br);t.position.y=.5;const c1=new THREE.Mesh(new THREE.ConeGeometry(.6,1.1,14),m),c2=new THREE.Mesh(new THREE.ConeGeometry(.4,.9,14),m);c1.position.y=1.2;c2.position.y=1.8;g.add(t,c1,c2)}
+  else if(o[6]==="f"){const t=cy(.05,.05,1,MT(0x3a8a3a));t.position.y=.5;const c=new THREE.Mesh(new THREE.ConeGeometry(.45,.8,14),m);c.rotation.x=Math.PI;c.position.y=1.3;g.add(t,c)}
+  else{const b=new THREE.Mesh(new THREE.SphereGeometry(.5,20,16),m);b.scale.set(1.3,.8,.8);b.position.y=.8;const h=new THREE.Mesh(new THREE.SphereGeometry(.28,16,12),m);h.position.set(.7,1.1,0);g.add(b,h);
+   for(const [x,z] of [[-.4,.25],[-.4,-.25],[.4,.25],[.4,-.25]]){const l=cy(.06,.06,.5,m);l.position.set(x,.25,z);g.add(l)}}
+  const a=i/n*Math.PI*2;g.position.set(Math.cos(a)*3.5,0,Math.sin(a)*3.5);g.userData.pick=i;g.userData.k=o[6];
+  const l=lab(tx([o[0],o[1]]));l.position.y=2.5;g.add(l);S.g.add(g);gs.push(g)});
+ let sel=-1;
+ S.pick=i=>{sel=i;const o=LC[i];show(tx([o[0],o[1]]),`<p><em>${o[2]}</em></p><p>${o[3].split(" › ").map(x=>`<span class="k">${x}</span>`).join("›")}</p><p>${tx([o[4],o[5]])}</p>`)};
+ [["🌐",""],["🌿","pf"],["🐾","a"]].forEach(([t,f])=>btn(t,()=>gs.forEach(g=>g.visible=!f||f.includes(g.userData.k))));
+ show(tx(["Mahalliy turlar","Local species"]),D[2].p.map(a=>`<p>${tx(a)}</p>`).join(""));
+ S.ticks.push(t=>gs.forEach((g,i)=>{g.position.y=Math.sin(t*1.5+i)*.08;g.scale.setScalar(i===sel?1.25:1)}))}
+
+/* ===== Odam organizmi: 20 ta 3D + 100 fakt ===== */
+const HM=[
+["❤️","Yurak","Heart","heart","Yurak minutiga oʻrtacha 60–100 marta uriladi.|Kattalar yuragi taxminan musht kattaligida, ogʻirligi 250–350 g.|Yurak 4 kameradan iborat: 2 boʻlmacha va 2 qorincha.|Yurak kuniga taxminan 100 000 marta uradi.|Chap qorincha qonni katta qon aylanish doirasiga haydaydi."],
+["🫁","Oʻpka","Lungs","lung","Oʻpkada taxminan 300–500 million alveola bor.|Oʻng oʻpka 3 boʻlakdan, chap oʻpka 2 boʻlakdan iborat.|Gaz almashinuvi alveolalarni oʻrab turgan kapillyarlarda boradi.|Kattalar tinch holatda minutiga 12–20 marta nafas oladi.|Havo tarkibida taxminan 21% kislorod bor."],
+["🧠","Miya","Brain","brain","Miya tana ogʻirligining ~2% ini tashkil qiladi, lekin kislorodning ~20% ini sarflaydi.|Miyada taxminan 86 milliard neyron bor.|Miyaning ~75% i suvdan iborat.|Miyaning oʻzida ogʻriq retseptorlari yoʻq.|Har bir yarim shar asosan tananing qarama-qarshi tomonini boshqaradi."],
+["⚡","Neyron","Neuron","neuron","Neyron tanasi, dendritlar va aksondan iborat.|Baʼzi aksonlarda nerv impulsi tezligi ~120 m/s gacha yetadi.|Mielin qobigʻi impulsning oʻtishini tezlashtiradi.|Neyronlar kamdan-kam boʻlinadi, shuning uchun ularni asrash muhim.|Impuls — elektr-kimyoviy signal (harakat potensiali)."],
+["🔗","Sinaps","Synapse","synapse","Sinaps — ikki neyron orasidagi aloqa joyi.|Signal neyromediatorlar (atsetilxolin, dofamin) orqali uzatiladi.|Sinaptik yoriq kengligi taxminan 20–40 nm.|Bitta neyron minglab sinapslarga ega boʻlishi mumkin.|Oʻrganish va mashq sinapslarni mustahkamlaydi."],
+["🩸","Qon","Blood","blood","Kattalarda taxminan 5 litr qon bor.|Eritrotsitlar gemoglobin yordamida kislorod tashiydi.|Eritrotsit taxminan 120 kun yashaydi.|Leykotsitlar himoya qiladi, trombotsitlar qon ivishini taʼminlaydi.|Qon plazmasining ~90% i suvdan iborat."],
+["🧬","DNK","DNA","dna","DNKda 4 xil asos bor: A, T, G, C.|Qoʻsh spiral modelini 1953-yilda Uotson va Krik taklif qilgan.|Odamda 23 juft (46 ta) xromosoma bor.|Inson genomi ~3 milliard asos juftidan iborat.|Odamlar DNKsining ~99,9% i bir xil."],
+["🔬","Hujayra","Cell","cell","Hujayrani 1665-yilda Robert Guk nomlagan.|Yadro irsiy axborotni saqlaydi.|Mitoxondriya hujayra energiyasi (ATF) ni hosil qiladi.|Ribosomalar oqsil sintez qiladi.|Odam tanasida taxminan 30–37 trillion hujayra bor."],
+["🍽️","Meʼda","Stomach","stomach","Meʼda shirasida xlorid kislota bor (pH ≈ 1,5–3,5).|Meʼda hajmi taxminan 1–1,5 l, choʻzilganda koʻproq.|Pepsin fermenti oqsillarni parchalaydi.|Shilliq qavat meʼdani oʻz kislotasidan himoya qiladi.|Ovqat meʼdada odatda 2–4 soat qoladi."],
+["🌀","Ichak","Intestine","gut","Ingichka ichak uzunligi taxminan 6–7 m.|Soʻrilish asosan ingichka ichakda boradi, vorsinkalar yuzani oshiradi.|Yoʻgʻon ichakda asosan suv soʻriladi.|Ichakda trillionlab foydali bakteriyalar yashaydi.|Ovqat hazm yoʻlidan odatda 1–3 sutkada oʻtadi."],
+["🟤","Jigar","Liver","liver","Jigar — tanadagi eng yirik ichki bez, ogʻirligi ~1,5 kg.|Safro ishlab chiqarib, yogʻlarning hazmiga yordam beradi.|Zararli moddalarni zararsizlantiradi.|Jigar qisman qayta tiklana oladi.|Glikogen zaxirasini saqlaydi."],
+["🫘","Buyrak","Kidney","kidney","Odamda ikkita buyrak bor, har biri mushtdek kattalikda.|Har bir buyrakda ~1 million nefron bor.|Kuniga ~180 l dastlabki siydik filtrlanadi, oxirida ~1–2 l siydik chiqadi.|Buyraklar qon bosimi va tuz-suv muvozanatini boshqaradi.|Eritropoetin gormonini ishlab chiqaradi."],
+["👁️","Koʻz","Eye","eye","Toʻr pardada tayoqchalar va kolbachalar bor.|Kolbachalar rangni, tayoqchalar qorongʻida koʻrishni taʼminlaydi.|Qorachiq yorugʻlikka qarab kengayadi va torayadi.|Tasvir toʻr pardaga teskari tushadi, miya uni toʻgʻrilaydi.|Odam oʻrtacha minutiga ~15–20 marta pirpiraydi."],
+["👂","Quloq","Ear","ear","Quloq 3 qismdan iborat: tashqi, oʻrta va ichki.|Bolgʻacha, sandon va uzangi — tanadagi eng kichik suyaklar.|Chigʻanoq tovushni nerv signaliga aylantiradi.|Muvozanatni yarimdoira kanallari taʼminlaydi.|Odam taxminan 20 Hz – 20 kHz tovushni eshitadi."],
+["🦴","Skelet va umurtqa","Skeleton & spine","spine","Kattalar skeletida 206 ta suyak bor.|Umurtqa pogʻonasi 33 ta umurtqadan iborat (kattalarda baʼzilari qoʻshilib ketadi).|Eng uzun suyak — son suyagi.|Eng kichik suyak — quloqdagi uzangi.|Chaqaloqda ~270 suyak boʻladi, oʻsish bilan qoʻshilib 206 taga tushadi."],
+["💪","Mushak","Muscle","muscle","Odamda 600 dan ortiq skelet mushagi bor.|Mushaklar juft ishlaydi: bitseps bukadi, tritseps yozadi.|Mushak qisqarishi uchun energiya ATF dan olinadi.|Eng yirik mushak — katta dumba mushagi.|Mushaklar paylar orqali suyaklarga birikadi."],
+["🦷","Tish","Tooth","tooth","Kattalarda 32 ta tish bor (aql tishlari bilan).|Sut tishlari 20 ta.|Emal — tanadagi eng qattiq toʻqima.|Tish tuzilishi: emal, dentin va pulpa.|Karies bakteriyalar hosil qilgan kislotadan kelib chiqadi."],
+["🖐️","Teri","Skin","skin","Teri — tananing eng yirik organi, yuzasi ~1,5–2 m².|Qavatlari: epidermis, derma va gipoderma.|Ter bezlari terlash orqali tanani sovitadi.|Melanin terini ultrabinafsha nurdan himoya qiladi.|Epidermis taxminan 4–6 haftada yangilanadi."],
+["🛡️","Immunitet","Immunity","immune","Leykotsitlar immun tizimining asosiy hujayralaridir.|B-limfotsitlar antitelalar ishlab chiqaradi.|Emlash immun «xotira»sini shakllantiradi.|Timus va suyak koʻmigi immun tizimining markaziy organlari.|Fagotsitozni I. Mechnikov kashf etgan."],
+["🧪","Bezlar va gormonlar","Glands & hormones","gland","Endokrin bezlar gormonlarni bevosita qonga chiqaradi.|Gipofiz «bosh bez» deb ataladi.|Qalqonsimon bez tiroksin ishlab chiqaradi, uning uchun yod kerak.|Oshqozon osti bezi insulin ishlab chiqaradi.|Adrenalin buyrak usti bezlaridan ajraladi."]];
+const V=(x,y,z)=>new THREE.Vector3(x,y,z),P2=Math.PI*2;
+const bl=(S,c,r,x,y,z,sx,sy,sz)=>{const m=new THREE.Mesh(r>=.8?org(r,2.2,.05):new THREE.SphereGeometry(r,24,18),MT(c,c));m.position.set(x,y,z);m.scale.set(sx||1,sy||1,sz||1);S.g.add(m);return m};
+const tb=(S,f,c,w)=>{const p=[];for(let i=0;i<=80;i++)p.push(f(i/80));S.g.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(p),160,w||.18,10),new THREE.MeshPhysicalMaterial({color:lin(c),transparent:true,opacity:.35,roughness:.12,clearcoat:1,clearcoatRoughness:.08,envMapIntensity:1.4,depthWrite:false})))};
+const fl=(S,f,n,c,sp,z)=>{const a=[];for(let i=0;i<n;i++){const m=bl(S,c,z||.1,0,0,0);m.add(gl(c,(z||.1)*7));a.push(m)}S.ticks.push(t=>a.forEach((m,i)=>m.position.copy(f((t*sp+i/n)%1))))};
+const cir=(r,y)=>u=>V(Math.cos(u*P2)*r,y||0,Math.sin(u*P2)*r);
+const cyl=(S,c,a,h,x,y,z)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(a,a,h,16),MT(c));m.position.set(x,y,z);S.g.add(m);return m};
+const B={
+heart:S=>{const h=bl(S,"#e53935",1.3,0,0,0,1,1.15,.9),h2=bl(S,"#c62828",.8,.9,.9,0);const f=u=>{const a=u*P2;return V(3*Math.sin(a),1.6*Math.sin(2*a),Math.cos(a)*.8)};tb(S,f,"#ef5350");fl(S,f,24,"#ff8a80",.12);S.ticks.push(t=>{const k=1+Math.pow(Math.max(0,Math.sin(t*5)),6)*.15;h.scale.set(k,1.15*k,.9*k);h2.scale.setScalar(k)})},
+lung:S=>{const a=bl(S,"#f48fb1",1.1,-1.3,0,0,.9,1.5,.8),b=bl(S,"#f48fb1",1.1,1.3,0,0,.9,1.5,.8);cyl(S,"#fff",.12,2,0,2,0);fl(S,u=>V(0,3-u*3,0),10,"#81d4fa",.3,.07);S.ticks.push(t=>{const k=1+Math.sin(t*2)*.08;[a,b].forEach(m=>m.scale.set(.9*k,1.5*k,.8*k))})},
+brain:S=>{bl(S,"#f8bbd0",1.5,-.8,0,0,.9,.8,1.2);bl(S,"#f8bbd0",1.5,.8,0,0,.9,.8,1.2);const sp=[];for(let i=0;i<40;i++){const a=Math.random()*P2,b=Math.random()*Math.PI;sp.push(bl(S,"#ffd54f",.07,Math.cos(a)*Math.sin(b)*2.3,Math.cos(b)*1.2,Math.sin(a)*Math.sin(b)*1.7))}S.ticks.push(t=>sp.forEach((m,i)=>m.scale.setScalar(.6+Math.abs(Math.sin(t*3+i))*1.5)))},
+neuron:S=>{bl(S,"#7e57c2",.6,-3,0,0);for(let i=0;i<8;i++){const a=i/8*P2,l=cyl(S,"#b39ddb",.04,1.5,-3+Math.cos(a)*.9,Math.sin(a)*.9,0);l.rotation.z=a-Math.PI/2}const f=u=>V(-2.4+u*6.6,Math.sin(u*9)*.15,0);tb(S,f,"#b39ddb",.07);fl(S,f,3,"#ffee58",.5,.18);bl(S,"#7e57c2",.3,4.2,0,0)},
+synapse:S=>{bl(S,"#7e57c2",1.1,-2.2,0,0);bl(S,"#26a69a",1.1,2.2,0,0);fl(S,u=>V(-1.2+u*2.4,Math.sin(u*20)*.5,Math.cos(u*13)*.5),30,"#ffca28",.35,.07)},
+blood:S=>{const f=u=>V(u*9-4.5,Math.sin(u*18)*.9,Math.cos(u*18)*.9);tb(S,f,"#ef9a9a",.8);fl(S,f,36,"#d32f2f",.08,.16);fl(S,u=>f((u+.37)%1),6,"#fff",.06,.2)},
+dna:S=>{const h=new THREE.Group();S.g.add(h);for(let k=0;k<60;k++){const a=k*.4,y=k*.14-4.1;[0,Math.PI].forEach((o,j)=>{const m=bl(S,j?"#ff5577":"#33ddff",.13,Math.cos(a+o)*.9,y,Math.sin(a+o)*.9);S.g.remove(m);h.add(m)});const r=cyl(S,k%2?"#ffd54f":"#a5d6a7",.03,1.8,0,y,0);S.g.remove(r);r.rotation.order="YXZ";r.rotation.set(0,-a,Math.PI/2);h.add(r)}S.ticks.push(t=>h.rotation.y=t)},
+cell:S=>{const m=bl(S,"#80cbc4",3,0,0,0);m.material=new THREE.MeshStandardMaterial({color:"#80cbc4",transparent:true,opacity:.25});bl(S,"#7e57c2",1,0,0,0);[["#ff7043",1.7],["#66bb6a",2.2],["#ffee58",2.6]].forEach(([c,r],i)=>fl(S,u=>V(Math.cos(u*P2+i)*r,Math.sin(u*P2*2+i)*.8,Math.sin(u*P2+i)*r),5,c,.1+i*.05,.2))},
+stomach:S=>{const s=bl(S,"#ef9a9a",2,0,0,0,1.1,.8,.8);fl(S,u=>V(Math.sin(u*P2*3)*1.2,1-u*2,Math.cos(u*P2*3)*.6),16,"#ffcc80",.12,.12);S.ticks.push(t=>{const k=1+Math.sin(t*3)*.07;s.scale.set(1.1/k,.8*k,.8*k)})},
+gut:S=>{const f=u=>{const a=u*P2;return V((Math.sin(a)+2*Math.sin(2*a))*.9,(Math.cos(a)-2*Math.cos(2*a))*.9,-Math.sin(3*a)*.9)};tb(S,f,"#ffab91",.3);fl(S,f,30,"#8d6e63",.06,.13)},
+liver:S=>{bl(S,"#8d3b2f",1.8,-.9,0,0,1.3,.7,.8);bl(S,"#7a3226",1.2,1.4,-.1,0,1.1,.6,.7);fl(S,u=>V(Math.cos(u*P2)*2.2,Math.sin(u*P2)*1.1+1,.9),14,"#aed581",.15,.1)},
+kidney:S=>{[-1,1].forEach(x=>{const k=bl(S,"#a1433f",1,x*2.3,0,0,.7,1.3,.6);k.rotation.z=x*.2;fl(S,u=>V(x*2.3,1.8-u*3.6,.7),8,"#fff176",.2,.09)})},
+eye:S=>{bl(S,"#fafafa",2,0,0,0);const i=cyl(S,"#29b6f6",1,.1,0,0,1.95),p=cyl(S,"#000",.5,.12,0,0,1.99);i.rotation.x=p.rotation.x=Math.PI/2;S.ticks.push(t=>{const k=.6+(Math.sin(t*1.5)+1)*.35;p.scale.set(k,1,k)})},
+ear:S=>{const f=u=>{const a=u*P2*2.5;return V(Math.cos(a)*(1.5-u),u*3-1.5,Math.sin(a)*(1.5-u))};tb(S,f,"#ffcc80",.25);fl(S,f,12,"#ff7043",.1,.1);const w=[];for(let i=0;i<5;i++){const r=new THREE.Mesh(new THREE.TorusGeometry(1,.03,8,48),MT("#4fc3f7"));r.rotation.y=Math.PI/2;r.material.transparent=true;S.g.add(r);w.push(r)}S.ticks.push(t=>w.forEach((r,i)=>{const u=(t*.4+i/5)%1;r.position.x=-4+u*3;r.scale.setScalar(.4+u);r.material.opacity=1-u}))},
+spine:S=>{const v=[];for(let i=0;i<24;i++){const m=new THREE.Mesh(new THREE.TorusGeometry(.5,.2,8,16),MT("#eceff1"));m.rotation.x=Math.PI/2;S.g.add(m);v.push(m)}S.ticks.push(t=>v.forEach((m,i)=>m.position.set(Math.sin(i*.3+t)*.6,3.6-i*.3,Math.cos(i*.3+t)*.3)))},
+muscle:S=>{cyl(S,"#eceff1",.3,2.6,0,1.3,0);const fg=new THREE.Group();fg.add(cyl(S,"#eceff1",.3,2.6,0,-1.3,0));S.g.add(fg);const mu=bl(S,"#c62828",.5,.55,1.3,0,.8,2.3,.8);S.ticks.push(t=>{const k=(Math.sin(t*1.5)+1)/2;fg.rotation.z=k*1.6;mu.scale.set(.8+k*.5,2.3-k*.4,.8+k*.5)})},
+tooth:S=>{bl(S,"#fffde7",1.4,0,1,0,1,.9,1);[-.6,.6].forEach(x=>{const r=new THREE.Mesh(new THREE.ConeGeometry(.5,2.2,14),MT("#ffe0b2"));r.position.set(x,-1.3,0);r.rotation.z=Math.PI;S.g.add(r)});const p=bl(S,"#ef5350",.4,0,.6,0);S.ticks.push(t=>p.scale.setScalar(1+Math.sin(t*3)*.15));fl(S,cir(2.1,-.2),6,"#9ccc65",.15,.1)},
+skin:S=>{[["#ffcc80",.4,1.4],["#f48fb1",.8,.5],["#fff59d",.9,-.6]].forEach(([c,h,y])=>{const m=new THREE.Mesh(new THREE.BoxGeometry(6,h,3),MT(c));m.position.y=y;S.g.add(m)});for(let i=0;i<7;i++)cyl(S,"#5d4037",.03,1.2,i-3,2.2,(i%3-1)*.8);fl(S,u=>V(-1+Math.sin(u*9)*.2,1.4-u*2.4,.5),6,"#4fc3f7",.2,.08)},
+immune:S=>{const w=bl(S,"#fafafa",1.1,0,0,0),vs=[];for(let i=0;i<10;i++){const v=new THREE.Mesh(new THREE.IcosahedronGeometry(.25,0),MT("#76ff03","#33691e"));S.g.add(v);vs.push(v)}S.ticks.push(t=>{w.position.x=Math.sin(t*.6)*.8;vs.forEach((v,i)=>{const a=t*.5+i/10*P2,r=3.2-((t*.3+i*.31)%3);v.position.set(Math.cos(a)*r,Math.sin(a*2)*r*.5,Math.sin(a)*r);v.scale.setScalar(r<1.35?.01:1);v.rotation.y=t})})},
+gland:S=>{[["#ffb74d",3],["#4db6ac",1.2],["#ba68c8",-.6],["#f06292",-2.4]].forEach(([c,y],i)=>{bl(S,c,.5,0,y,0);fl(S,u=>V(Math.cos(i*1.5)*u*3,y+Math.sin(i*1.5)*u*3,Math.sin(u*9)*.3),8,c,.2,.06)})}};
+const SY=[["🫀","Qon aylanish",[0,5]],["🫁","Nafas olish",[1]],["🧠","Asab tizimi",[2,3,4]],["🍽️","Hazm tizimi",[16,8,10,9]],["🫘","Ayirish va teri",[11,17]],["👁️","Sezgi organlari",[12,13]],["🦴","Tayanch-harakat",[14,15]],["🛡️","Immun tizimi",[18]],["🧪","Endokrin tizim",[19]],["🧬","Hujayra va irsiyat",[7,6]]];
+function PG(){const T=(a,b)=>tx([a,b]),sec=(id,h,b)=>`<section id="${id}" class="sc"><h2 class="sec">${h}</h2>${b}</section>`,nm=(i)=>T(HM[i][1],HM[i][2]);
+ $("#nv").innerHTML=[["t","Tana","Body"],["s","Tizimlar","Systems"],["rq","Raqamlar","Numbers"],["hz","Hazm","Digestion"],["b","Qon","Blood"],["f","Faktlar","Facts"],["tasnif","Tasnif","Classification"],["c",U(5),U(5)]].map(a=>`<a href="#${a[0]}">${T(a[1],a[2])}</a>`).join("");
+ $("#eb").textContent=T("Odam organizmi","Human body");
+ $("#bt").innerHTML=`<a href="#t">${T("Tanani oʻrganish","Explore the body")}</a><a href="#tasnif">${U(0)}</a>`;
+ $("#st0").innerHTML=[[20,T("3D organ","3D models")],[10,T("tizim","systems")],[100,T("fakt","facts")],[22,T("til","languages")]].map(a=>`<div><b>${a[0]}</b><span>${a[1]}</span></div>`).join("");
+ const N8=[["206",T("suyak","bones")],["~5 l",T("qon","blood")],["600+",T("mushak","muscles")],["~86 mlrd",T("neyron","neurons")],["32",T("tish","teeth")],["46",T("xromosoma","chromosomes")],["~100 000",T("yurak urishi / kun","heartbeats / day")],["6–7 m",T("ingichka ichak","small intestine")]];
+ $("#pg").innerHTML=
+ sec("s",T("Organlar tizimlari","Organ systems"),`<div class="grid sm">${SY.map(s=>`<div class="card"><div class="ic">${s[0]}</div><h3>${s[1]}</h3><div>${s[2].map(i=>`<button class="k2" data-h="${i}">${HM[i][0]} ${nm(i)}</button>`).join("")}</div></div>`).join("")}</div>`)+
+ sec("rq",T("Odam tanasi raqamlarda","The body in numbers"),`<div class="grid sm">${N8.map(a=>`<div class="card num"><b>${a[0]}</b><p>${a[1]}</p></div>`).join("")}</div>`)+
+ sec("hz",T("Ovqatning sayohati","The journey of food"),`<div class="grid sm">${[16,8,10,9].map((i,k)=>`<div class="card" data-h="${i}"><div class="ic">${HM[i][0]}</div><h3>${k+1}. ${nm(i)}</h3><p>${HM[i][4].split("|")[0]}</p></div>`).join("")}</div>`)+
+ sec("b",T("Qon tarkibi","Blood composition"),`<div class="grid"><div class="card"><div class="bar"><div style="flex:55;background:#f9a825">${T("Plazma","Plasma")} ~55%</div><div style="flex:44;background:#c62828">${T("Eritrotsit","Red cells")} ~44%</div><div style="flex:1;background:#90a4ae"></div></div><p>${T("Leykotsit va trombotsitlar: taxminan 1% dan kam.","White cells and platelets: under about 1%.")}</p><button data-h="5">🩸 3D ▶</button></div></div>`)+
+ sec("f",T("Qiziqarli faktlar","Interesting facts"),`<div style="padding:0 16px">${HM.map((h,i)=>`<details><summary>${h[0]} ${nm(i)}</summary><ol>${h[4].split("|").map(f=>`<li>${f}</li>`).join("")}</ol><button data-h="${i}">3D ▶</button></details>`).join("")}</div>`)+
+ sec("tasnif",U(0),`<main class="grid" id="gr"></main>`);
+ $("#pg").querySelectorAll("[data-h]").forEach(c=>c.onclick=()=>openH(+c.dataset.h))}
+function openH(i){const h=HM[i],n=h[0]+" "+tx([h[1],h[2]]);$("#win").classList.add("on");document.body.style.overflow="hidden";$("#wt").textContent=n;$("#ctl").innerHTML="";cur=stage($("#box"));B[h[3]](cur);cur.g.rotation.x=.1;cur.g.scale.setScalar(innerWidth<760?.65:1);show(n,"<p>5 fakt (uz):</p><ol>"+h[4].split("|").map(f=>`<li>${f}</li>`).join("")+"</ol>")}
+function openW(k){
+ $("#win").classList.add("on");document.body.style.overflow="hidden";$("#wt").textContent=(k+1)+". "+U(k+1);$("#ctl").innerHTML="";
+ show("","");cur=stage($("#box"));[s1,s2,s3][k](cur);
+ if(k!==1)show(tx(["Tur nima?","What is a species?","Mahalliy turlar","Local species"].slice(k?2:0,k?4:2)),D[k].p.map(a=>`<p>${tx(a)}</p>`).join(""))}
+$("#cb").onclick=()=>{cur&&cur.stop();cur=null;$("#win").classList.remove("on");document.body.style.overflow=""};
+/* ===== Stikerlar oʻrniga 3D animatsiyali ikonlar ===== */
+const og=(S,c,r,x,y,z,sx,sy,sz,k,a)=>{const m=new THREE.Mesh(org(r,k,a),MT(c,c));m.position.set(x,y,z);m.scale.set(sx||1,sy||1,sz||1);S.g.add(m);return m};
+B.brain=S=>{og(S,"#e9a7b4",1.5,-.8,0,0,.9,.8,1.2,7,.09);og(S,"#e9a7b4",1.5,.8,0,0,.9,.8,1.2,7,.09);og(S,"#d98aa0",.8,0,-.9,-1.4,1.3,.7,.8,5,.07);const sp=[];for(let i=0;i<40;i++){const a=Math.random()*P2,b=Math.random()*Math.PI,s=bl(S,"#ffd54f",.07,Math.cos(a)*Math.sin(b)*2.3,Math.cos(b)*1.2,Math.sin(a)*Math.sin(b)*1.7);s.add(gl("#ffd54f",.9));sp.push(s)}S.ticks.push(t=>sp.forEach((m,i)=>m.scale.setScalar(.6+Math.abs(Math.sin(t*3+i))*1.5)))};
+B.eye=S=>{const c=document.createElement("canvas");c.width=c.height=256;const x=c.getContext("2d");x.fillStyle="#2b6f8f";x.fillRect(0,0,256,256);for(let i=0;i<256;i++){x.strokeStyle=`hsla(${185+Math.random()*50},65%,${30+Math.random()*35}%,.85)`;x.beginPath();x.moveTo(i,70);x.lineTo(i+Math.random()*6-3,235);x.stroke()}const g=x.createLinearGradient(0,0,0,256);g.addColorStop(0,"#000");g.addColorStop(.4,"#000");g.addColorStop(.45,"rgba(0,0,0,0)");g.addColorStop(.88,"rgba(0,0,0,0)");g.addColorStop(1,"#0a1a22");x.fillStyle=g;x.fillRect(0,0,256,256);const tm=new THREE.CanvasTexture(c);tm.encoding=THREE.sRGBEncoding;
+ const cap=(r,a,m)=>{const q=new THREE.Mesh(new THREE.SphereGeometry(r,48,24,0,P2,0,a),m);q.rotation.x=Math.PI/2;S.g.add(q)};
+ S.g.add(new THREE.Mesh(new THREE.SphereGeometry(2,56,40),MT("#f1e9e2")));cap(2.02,.6,new THREE.MeshStandardMaterial({map:tm,roughness:.35}));cap(2.12,.78,new THREE.MeshPhysicalMaterial({color:0xffffff,roughness:0,transparent:true,opacity:.16,clearcoat:1,clearcoatRoughness:0,envMapIntensity:2.5,depthWrite:false}));S.ticks.push(t=>tm.offset.y=Math.sin(t*1.4)*.07)};
+B.blood=S=>{const f=u=>V(u*9-4.5,Math.sin(u*18)*.9,Math.cos(u*18)*.9);tb(S,f,"#ef9a9a",.8);const up=[],dn=[];for(let k=0;k<=24;k++){const q=k/24,y=.17*Math.sqrt(1-q*q)*(.35+.65*q*q);dn.push(new THREE.Vector2(.34*q,-y));up.unshift(new THREE.Vector2(.34*q,y))}const ge=new THREE.LatheGeometry(dn.concat(up),28),cs=[];for(let i=0;i<40;i++){const m=new THREE.Mesh(ge,MT("#c62828"));m.scale.setScalar(1.6);S.g.add(m);cs.push(m)}const w=[];for(let i=0;i<5;i++)w.push(bl(S,"#f5f0e0",.32,0,0,0));S.ticks.push(t=>{cs.forEach((m,i)=>{m.position.copy(f((t*.07+i/40)%1));m.rotation.set(t*.8+i,t*.5+i*2,0)});w.forEach((m,i)=>m.position.copy(f((t*.05+i/5+.1)%1)))})};
+B.cell=S=>{S.g.add(new THREE.Mesh(new THREE.SphereGeometry(3,48,36),new THREE.MeshPhysicalMaterial({color:lin("#9de0d4"),transparent:true,opacity:.22,roughness:.08,clearcoat:1,envMapIntensity:1.6,depthWrite:false,side:THREE.DoubleSide})));bl(S,"#7e57c2",1);const mi=[];for(let i=0;i<6;i++)mi.push(bl(S,"#ff7043",.3,0,0,0,2.2,1,1));tb(S,u=>V(Math.cos(u*P2*3)*(1.5+Math.sin(u*P2*8)*.2),Math.sin(u*P2*8)*.5,Math.sin(u*P2*3)*1.5),"#ffd54f",.08);S.ticks.push(t=>mi.forEach((m,i)=>{const a=t*.3+i*1.05,r=1.9+(i%3)*.3;m.position.set(Math.cos(a)*r,Math.sin(a*1.7)*.9,Math.sin(a)*r);m.rotation.set(0,-a,a*.5)}))};
+B.tax=S=>{[["#42a5f5",1.1],["#26c6da",.9],["#66bb6a",.7],["#ffa726",.5]].forEach(([c,r],i)=>{bl(S,c,r,Math.sin(i*1.2)*1.2,2.2-i*1.5,0);const g=new THREE.Mesh(new THREE.TorusGeometry(r+.35,.04,8,40),MT("#fff"));g.position.set(Math.sin(i*1.2)*1.2,2.2-i*1.5,0);S.g.add(g);S.ticks.push(t=>g.rotation.x=t*(1+i*.3))})};
+B.pop=S=>{const a=[];for(let i=0;i<7;i++)a.push(bl(S,"hsl("+(i*50)+",60%,55%)",.5,Math.cos(i)*2,0,Math.sin(i)*2,1,.75,1.4));S.ticks.push(t=>a.forEach((m,i)=>m.position.y=Math.sin(t*2+i)*.5))};
+B.flora=S=>{cyl(S,"#6b4a2b",.15,1.6,-1.5,-.4,0);[[.8,1.2],[.55,1.9]].forEach(([r,y])=>{const c=new THREE.Mesh(new THREE.ConeGeometry(r,1.2,14),MT("#2e7d4f"));c.position.set(-1.5,y,0);S.g.add(c)});const b=bl(S,"#d9a05b",.7,1.6,-.4,0,1.3,.8,.8);bl(S,"#d9a05b",.4,2.4,0,0);S.ticks.push(t=>b.position.y=-.4+Math.abs(Math.sin(t*3))*.3)};
+B.book=S=>{S.g.add(new THREE.Mesh(new THREE.BoxGeometry(3,4,.6),MT("#1e88e5")));const p=new THREE.Mesh(new THREE.BoxGeometry(2.7,3.7,.5),MT("#fff"));p.position.x=.15;S.g.add(p);const l=new THREE.Mesh(new THREE.BoxGeometry(1.6,.2,.62),MT("#ffd54f"));l.position.set(0,.6,0);S.g.add(l);S.ticks.push(t=>l.position.y=.6+Math.sin(t*2)*.5)};
+const KZ={blood:21,neuron:20,ear:20,skin:19,synapse:17,immune:17,tax:13,book:14,muscle:13,brain:14,cell:14},MR=new THREE.WebGLRenderer({antialias:true,alpha:true}),IC=[],IO=new IntersectionObserver(es=>es.forEach(e=>e.target._v=e.isIntersecting));
+MR.setPixelRatio(1);MR.setSize(120,120);MR.setClearColor(0,0);MR.outputEncoding=THREE.sRGBEncoding;MR.toneMapping=THREE.ACESFilmicToneMapping;MR.toneMappingExposure=1.25;const MENV=mkEnv(MR);
+function mkIcon(cv,k){if(!B[k])return;const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,1,.1,100),g=new THREE.Group(),S={g,ticks:[]};sc.environment=MENV;sc.add(new THREE.HemisphereLight(0xcfe8ff,0x203830,.4));const dl=new THREE.DirectionalLight(0xfff1dd,1.4);dl.position.set(4,6,8);sc.add(dl,g);B[k](S);cam.position.set(0,.5,KZ[k]||16);cam.lookAt(0,0,0);cv.width=cv.height=120;cv._v=true;IC.push({cv,ctx:cv.getContext("2d"),sc,cam,S});IO.observe(cv)}
+function ICO(){const K2=["heart","lung","brain","stomach","kidney","eye","spine","immune","gland","dna"],C3=["tax","pop","flora"];document.querySelectorAll(".ic").forEach(el=>{if(el.firstChild&&el.firstChild.tagName==="CANVAS")return;const c=el.closest(".card"),ix=c?[...c.parentNode.children].indexOf(c):0;let k="book";if(el.closest(".logo"))k="dna";else if(c&&c.dataset.h!==undefined)k=HM[+c.dataset.h][3];else if(c&&c.closest("#gr"))k=C3[ix];else if(c&&c.closest("#s"))k=K2[ix];el.textContent="";const cv=document.createElement("canvas");el.appendChild(cv);mkIcon(cv,k)})}
+const ck0=new THREE.Clock();(function lp(){requestAnimationFrame(lp);const t=ck0.getElapsedTime();for(let i=IC.length;i--;){const o=IC[i];if(!o.cv.isConnected){IC.splice(i,1);continue}if(!o.cv._v||document.hidden)continue;o.S.g.rotation.y=t*.7;o.S.ticks.forEach(f=>f(t));MR.render(o.sc,o.cam);o.ctx.clearRect(0,0,120,120);o.ctx.drawImage(MR.domElement,0,0)}})();
+/* barcha emoji/stikerlarni olib tashlash */
+const EM=/[\p{Extended_Pictographic}\uFE0F\u200D]/gu;
+function strip(n){if(n.nodeType===3){const s=n.data.replace(EM,"");if(s!==n.data)n.data=s.replace(/^\s+/,"")}else if(n.childNodes)n.childNodes.forEach(strip)}
+new MutationObserver(ms=>ms.forEach(m=>{m.addedNodes.forEach(strip);if(m.type==="characterData")strip(m.target)})).observe(document.body,{childList:true,subtree:true,characterData:true});
+strip(document.body);$(".logo").insertAdjacentHTML("afterbegin",'<span class="ic"></span>');$("#th").textContent="◐";
+const r0=render;render=function(){r0();ICO()};
+render();
+</script>
+</body>
+</html>
